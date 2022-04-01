@@ -1,5 +1,6 @@
 import React from 'react'
 import { useAddress, useDisconnect, useMetamask } from '@thirdweb-dev/react'
+import { getShortAddress } from '../../utils/nftAddress'
 const NFTDropPage = () => {
   // authorize
   const connectWithMetamask = useMetamask()
@@ -46,6 +47,11 @@ const NFTDropPage = () => {
           </button>
         </header>
         <hr className="my-2 border" />
+        {address && (
+          <p className="text-center text-sm text-rose-400">
+            You're logged in with wallet {getShortAddress(address)}
+          </p>
+        )}
         {/* content */}
         <div className="mt-10 flex flex-1 flex-col items-center space-y-6 text-center lg:justify-center lg:space-y-0">
           <img
